@@ -1,22 +1,22 @@
-import React from 'react';
 import { useState } from 'react';
 import Dashboard from './pages/Dashboard';
 import Accounts from './pages/Accounts';
 import Investments from './pages/Investments';
 import Transactions from './pages/Transactions';
 import Settings from './pages/Settings';
-import Login from './pages/Login';
+//import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Notifications from './pages/Notifications';
 import { AppLayout } from './layout/AppLayout';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Set to false to start with login page
 
-  if (!isLoggedIn) {
-    return <Login />;
-  }
+  // const [isLoggedIn, setIsLoggedIn] = useState(false); // Set to false to start with login page
+
+  // if (!isLoggedIn) {
+  //   return <Login />;
+  // }
 
   const renderPage = () => {
     switch (currentPage) {
