@@ -28,11 +28,11 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm">
+    <header className="bg-white shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <div className="flex-shrink-0 flex items-center">
+            <div className="shrink-0 flex items-center">
               <span className="text-xl font-bold text-blue-600">Financial Dashboard</span>
             </div>
           </div>
@@ -42,14 +42,14 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                 <Search className="h-5 w-5 text-gray-400" />
               </div>
               <input
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-hidden focus:placeholder-gray-400 focus:ring-1 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 placeholder="Search"
                 type="search"
               />
             </div>
             <div className="relative">
               <button 
-                className="p-2 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="p-2 rounded-full text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 onClick={toggleNotifications}
               >
                 <span className="absolute -top-1 -right-1 h-4 w-4 rounded-full bg-red-500 flex items-center justify-center text-xs text-white">2</span>
@@ -75,7 +75,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                       className="block w-full text-left px-4 py-3 hover:bg-gray-50 border-b border-gray-200"
                     >
                       <div className="flex">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                           <div className="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
                             <Bell className="h-5 w-5 text-blue-600" />
                           </div>
@@ -92,7 +92,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
                       className="block w-full text-left px-4 py-3 hover:bg-gray-50"
                     >
                       <div className="flex">
-                        <div className="flex-shrink-0">
+                        <div className="shrink-0">
                           <div className="h-10 w-10 rounded-full bg-red-100 flex items-center justify-center">
                             <Bell className="h-5 w-5 text-red-600" />
                           </div>
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
             <div className="ml-3 relative">
               <div>
                 <button 
-                  className="flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="flex text-sm rounded-full focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   onClick={toggleUserMenu}
                 >
                   <span className="inline-block h-8 w-8 rounded-full overflow-hidden bg-gray-100">

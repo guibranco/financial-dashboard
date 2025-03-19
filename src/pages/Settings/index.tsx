@@ -36,7 +36,7 @@ const Settings: React.FC = () => {
     <div className="max-w-7xl mx-auto">
       <h1 className="text-2xl font-semibold text-gray-900 mb-6">Settings</h1>
       
-      <div className="bg-white shadow rounded-lg overflow-hidden">
+      <div className="bg-white shadow-sm rounded-lg overflow-hidden">
         <div className="sm:flex sm:items-start">
           <div className="border-b border-gray-200 sm:border-b-0 sm:border-r sm:w-64">
             <nav className="flex flex-col sm:h-full py-6 px-4 sm:px-6">
@@ -113,7 +113,7 @@ const Settings: React.FC = () => {
                       id="firstName"
                       value={profile.firstName}
                       onChange={handleProfileChange}
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>
                   <div>
@@ -126,7 +126,7 @@ const Settings: React.FC = () => {
                       id="lastName"
                       value={profile.lastName}
                       onChange={handleProfileChange}
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>
                   <div>
@@ -139,7 +139,7 @@ const Settings: React.FC = () => {
                       id="email"
                       value={profile.email}
                       onChange={handleProfileChange}
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>
                   <div>
@@ -152,7 +152,7 @@ const Settings: React.FC = () => {
                       id="phone"
                       value={profile.phone}
                       onChange={handleProfileChange}
-                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>
                 </div>
@@ -160,7 +160,7 @@ const Settings: React.FC = () => {
                 <div className="mt-6">
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <Save className="h-4 w-4 mr-2" />
                     Save Changes
@@ -188,7 +188,7 @@ const Settings: React.FC = () => {
                           type="password"
                           name="currentPassword"
                           id="currentPassword"
-                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         />
                       </div>
                       <div>
@@ -199,7 +199,7 @@ const Settings: React.FC = () => {
                           type="password"
                           name="newPassword"
                           id="newPassword"
-                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         />
                       </div>
                       <div>
@@ -210,14 +210,14 @@ const Settings: React.FC = () => {
                           type="password"
                           name="confirmPassword"
                           id="confirmPassword"
-                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                          className="mt-1 block w-full border border-gray-300 rounded-md shadow-xs py-2 px-3 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                         />
                       </div>
                     </div>
                     <div className="mt-4">
                       <button
                         type="button"
-                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         Update Password
                       </button>
@@ -232,7 +232,7 @@ const Settings: React.FC = () => {
                     <div className="mt-3">
                       <button
                         type="button"
-                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         Enable Two-Factor Authentication
                       </button>
@@ -258,7 +258,7 @@ const Settings: React.FC = () => {
                             type="checkbox"
                             checked={notifications.email}
                             onChange={handleNotificationChange}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -277,7 +277,7 @@ const Settings: React.FC = () => {
                             type="checkbox"
                             checked={notifications.transactions}
                             onChange={handleNotificationChange}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -296,7 +296,7 @@ const Settings: React.FC = () => {
                             type="checkbox"
                             checked={notifications.security}
                             onChange={handleNotificationChange}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -315,7 +315,7 @@ const Settings: React.FC = () => {
                             type="checkbox"
                             checked={notifications.marketing}
                             onChange={handleNotificationChange}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -339,7 +339,7 @@ const Settings: React.FC = () => {
                             type="checkbox"
                             checked={notifications.push}
                             onChange={handleNotificationChange}
-                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                            className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                           />
                         </div>
                         <div className="ml-3 text-sm">
@@ -355,7 +355,7 @@ const Settings: React.FC = () => {
                   <div className="mt-6">
                     <button
                       type="button"
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                       <Save className="h-4 w-4 mr-2" />
                       Save Preferences
@@ -373,7 +373,7 @@ const Settings: React.FC = () => {
                   <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <div className="shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
                           <CreditCard className="h-6 w-6 text-blue-600" />
                         </div>
                         <div className="ml-4">
@@ -395,7 +395,7 @@ const Settings: React.FC = () => {
                   <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
-                        <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+                        <div className="shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
                           <CreditCard className="h-6 w-6 text-blue-600" />
                         </div>
                         <div className="ml-4">
@@ -416,7 +416,7 @@ const Settings: React.FC = () => {
                   
                   <button
                     type="button"
-                    className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <Plus className="h-4 w-4 mr-2" />
                     Add Payment Method
@@ -445,7 +445,7 @@ const Settings: React.FC = () => {
                         type="button"
                         className={`${
                           darkMode ? 'bg-blue-600' : 'bg-gray-200'
-                        } relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
+                        } relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
                         onClick={() => setDarkMode(!darkMode)}
                       >
                         <span className="sr-only">Toggle dark mode</span>
@@ -470,7 +470,7 @@ const Settings: React.FC = () => {
                           name="language"
                           value={profile.language}
                           onChange={handleProfileChange}
-                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                         >
                           <option value="en">English</option>
                           <option value="es">Spanish</option>
@@ -487,7 +487,7 @@ const Settings: React.FC = () => {
                           name="currency"
                           value={profile.currency}
                           onChange={handleProfileChange}
-                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                         >
                           <option value="USD">USD - US Dollar</option>
                           <option value="EUR">EUR - Euro</option>
@@ -504,7 +504,7 @@ const Settings: React.FC = () => {
                           name="timezone"
                           value={profile.timezone}
                           onChange={handleProfileChange}
-                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+                          className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                         >
                           <option value="America/New_York">Eastern Time (ET)</option>
                           <option value="America/Chicago">Central Time (CT)</option>
@@ -519,7 +519,7 @@ const Settings: React.FC = () => {
                   <div className="mt-6">
                     <button
                       type="button"
-                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                      className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-xs text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                     >
                       <Save className="h-4 w-4 mr-2" />
                       Save Preferences

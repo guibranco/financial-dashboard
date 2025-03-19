@@ -169,7 +169,7 @@ const Notifications: React.FC = () => {
         <div className="flex space-x-2">
           <button
             onClick={() => setNotifications(prev => prev.map(n => ({ ...n, isRead: true })))}
-            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             <Check className="h-4 w-4 mr-2" />
             Mark all as read
@@ -177,7 +177,7 @@ const Notifications: React.FC = () => {
         </div>
       </div>
       
-      <div className="bg-white shadow rounded-lg mb-8">
+      <div className="bg-white shadow-sm rounded-lg mb-8">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
@@ -233,7 +233,7 @@ const Notifications: React.FC = () => {
               </div>
             </div>
             <div className="mt-3 md:mt-0 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
-              <div className="relative rounded-md shadow-sm">
+              <div className="relative rounded-md shadow-xs">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Search className="h-5 w-5 text-gray-400" />
                 </div>
@@ -245,7 +245,7 @@ const Notifications: React.FC = () => {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+              <button className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                 <Filter className="h-4 w-4 mr-2" />
                 Filter
               </button>
@@ -269,7 +269,7 @@ const Notifications: React.FC = () => {
                 className={`px-6 py-4 hover:bg-gray-50 ${!notification.isRead ? 'bg-blue-50' : ''}`}
               >
                 <div className="flex items-start space-x-4">
-                  <div className={`flex-shrink-0 h-10 w-10 rounded-full ${getNotificationColor(notification.type)} flex items-center justify-center`}>
+                  <div className={`shrink-0 h-10 w-10 rounded-full ${getNotificationColor(notification.type)} flex items-center justify-center`}>
                     {getNotificationIcon(notification.type)}
                   </div>
                   <div className="flex-1 min-w-0" onClick={() => toggleExpand(notification.id)}>
@@ -294,7 +294,7 @@ const Notifications: React.FC = () => {
                             e.stopPropagation();
                             markAsRead(notification.id);
                           }}
-                          className="inline-flex items-center px-2 py-1 border border-gray-300 text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50"
+                          className="inline-flex items-center px-2 py-1 border border-gray-300 text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50"
                         >
                           <Check className="h-3 w-3 mr-1" />
                           Mark as read
@@ -304,7 +304,7 @@ const Notifications: React.FC = () => {
                             e.stopPropagation();
                             deleteNotification(notification.id);
                           }}
-                          className="inline-flex items-center px-2 py-1 border border-gray-300 text-xs font-medium rounded text-red-700 bg-white hover:bg-gray-50"
+                          className="inline-flex items-center px-2 py-1 border border-gray-300 text-xs font-medium rounded-sm text-red-700 bg-white hover:bg-gray-50"
                         >
                           <Trash2 className="h-3 w-3 mr-1" />
                           Delete
@@ -312,12 +312,12 @@ const Notifications: React.FC = () => {
                       </div>
                     )}
                   </div>
-                  <div className="flex-shrink-0 self-center flex">
+                  <div className="shrink-0 self-center flex">
                     <div className="flex space-x-1">
                       {!notification.isRead && (
                         <button
                           onClick={() => markAsRead(notification.id)}
-                          className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                          className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                         >
                           <span className="sr-only">Mark as read</span>
                           <Check className="h-5 w-5" />
@@ -325,7 +325,7 @@ const Notifications: React.FC = () => {
                       )}
                       <button
                         onClick={() => deleteNotification(notification.id)}
-                        className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         <span className="sr-only">Delete</span>
                         <Trash2 className="h-5 w-5" />
@@ -358,7 +358,7 @@ const Notifications: React.FC = () => {
         )}
       </div>
 
-      <div className="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="mt-8 bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900">Notification Preferences</h3>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">
@@ -377,7 +377,7 @@ const Notifications: React.FC = () => {
                       name="email-transactions"
                       type="checkbox"
                       defaultChecked
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -394,7 +394,7 @@ const Notifications: React.FC = () => {
                       name="email-security"
                       type="checkbox"
                       defaultChecked
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -410,7 +410,7 @@ const Notifications: React.FC = () => {
                       id="email-marketing"
                       name="email-marketing"
                       type="checkbox"
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -433,7 +433,7 @@ const Notifications: React.FC = () => {
                       name="push-transactions"
                       type="checkbox"
                       defaultChecked
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -450,7 +450,7 @@ const Notifications: React.FC = () => {
                       name="push-security"
                       type="checkbox"
                       defaultChecked
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -467,7 +467,7 @@ const Notifications: React.FC = () => {
                       name="push-balance"
                       type="checkbox"
                       defaultChecked
-                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded"
+                      className="focus:ring-blue-500 h-4 w-4 text-blue-600 border-gray-300 rounded-sm"
                     />
                   </div>
                   <div className="ml-3 text-sm">
@@ -483,7 +483,7 @@ const Notifications: React.FC = () => {
           <div className="mt-6">
             <button
               type="button"
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Save preferences
             </button>
