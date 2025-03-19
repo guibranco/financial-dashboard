@@ -29,7 +29,7 @@ const BalanceOverview: React.FC<BalanceOverviewProps> = ({ balances }) => {
         {balances.map((account) => (
           <div key={account.id} className="px-6 py-4 flex items-center justify-between hover:bg-gray-50">
             <div className="flex items-center">
-              <div className="flex-shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
                 <CreditCard className="h-6 w-6 text-blue-600" />
               </div>
               <div className="ml-4">

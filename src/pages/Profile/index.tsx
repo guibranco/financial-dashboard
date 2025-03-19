@@ -39,14 +39,14 @@ const Profile: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsEditing(false)}
-                className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mr-3"
+                className="inline-flex items-center px-4 py-2 border border-gray-300 rounded-md shadow-xs text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mr-3"
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleSubmit}
-                className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
                 <Save className="h-4 w-4 mr-2" />
                 Save Changes
@@ -56,7 +56,7 @@ const Profile: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsEditing(true)}
-              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+              className="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
             >
               Edit Profile
             </button>
@@ -64,14 +64,14 @@ const Profile: React.FC = () => {
         </div>
       </div>
 
-      <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
           <div>
             <h3 className="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
             <p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and contact information.</p>
           </div>
           <div className="relative">
-            <div className="h-24 w-24 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow">
+            <div className="h-24 w-24 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-sm">
               <img
                 src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                 alt="Profile"
@@ -101,7 +101,7 @@ const Profile: React.FC = () => {
                         name="firstName"
                         value={profile.firstName}
                         onChange={handleChange}
-                        className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="First name"
                       />
                     </div>
@@ -111,7 +111,7 @@ const Profile: React.FC = () => {
                         name="lastName"
                         value={profile.lastName}
                         onChange={handleChange}
-                        className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Last name"
                       />
                     </div>
@@ -133,7 +133,7 @@ const Profile: React.FC = () => {
                     name="email"
                     value={profile.email}
                     onChange={handleChange}
-                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Email address"
                   />
                 ) : (
@@ -153,7 +153,7 @@ const Profile: React.FC = () => {
                     name="phone"
                     value={profile.phone}
                     onChange={handleChange}
-                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Phone number"
                   />
                 ) : (
@@ -173,7 +173,7 @@ const Profile: React.FC = () => {
                     name="address"
                     value={profile.address}
                     onChange={handleChange}
-                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Address"
                   />
                 ) : (
@@ -195,7 +195,7 @@ const Profile: React.FC = () => {
                         name="occupation"
                         value={profile.occupation}
                         onChange={handleChange}
-                        className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Occupation"
                       />
                     </div>
@@ -205,7 +205,7 @@ const Profile: React.FC = () => {
                         name="company"
                         value={profile.company}
                         onChange={handleChange}
-                        className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                        className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                         placeholder="Company"
                       />
                     </div>
@@ -227,7 +227,7 @@ const Profile: React.FC = () => {
                     name="birthdate"
                     value={profile.birthdate}
                     onChange={handleChange}
-                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   />
                 ) : (
                   new Date(profile.birthdate).toLocaleDateString('en-US', {
@@ -247,7 +247,7 @@ const Profile: React.FC = () => {
                     rows={4}
                     value={profile.bio}
                     onChange={handleChange}
-                    className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                    className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                     placeholder="Tell us about yourself"
                   />
                 ) : (
@@ -259,7 +259,7 @@ const Profile: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="mt-8 bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900">Account Security</h3>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">Manage your account security settings.</p>
@@ -272,7 +272,7 @@ const Profile: React.FC = () => {
                 <span>••••••••••••</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Change password
                 </button>
@@ -284,7 +284,7 @@ const Profile: React.FC = () => {
                 <span>Not enabled</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Enable
                 </button>
@@ -296,7 +296,7 @@ const Profile: React.FC = () => {
                 <span>1 active session</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Manage sessions
                 </button>
@@ -306,7 +306,7 @@ const Profile: React.FC = () => {
         </div>
       </div>
 
-      <div className="mt-8 bg-white shadow overflow-hidden sm:rounded-lg">
+      <div className="mt-8 bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
           <h3 className="text-lg leading-6 font-medium text-gray-900">Connected Accounts</h3>
           <p className="mt-1 max-w-2xl text-sm text-gray-500">Link your accounts for easier access.</p>
@@ -319,7 +319,7 @@ const Profile: React.FC = () => {
                 <span>Not connected</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Connect
                 </button>
@@ -331,7 +331,7 @@ const Profile: React.FC = () => {
                 <span>Not connected</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Connect
                 </button>
@@ -343,7 +343,7 @@ const Profile: React.FC = () => {
                 <span>Not connected</span>
                 <button
                   type="button"
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-sm text-xs font-medium rounded text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 shadow-xs text-xs font-medium rounded-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                 >
                   Connect
                 </button>
