@@ -46,7 +46,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
               id="amount"
               value={amount}
               onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
-              className="shadow-sm focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
+              className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
             />
           </div>
         </div>
@@ -59,7 +59,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             id="fromCurrency"
             value={fromCurrency}
             onChange={(e) => setFromCurrency(e.target.value)}
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
           >
             {rates.map((currency) => (
               <option key={currency.code} value={currency.code}>
@@ -72,7 +72,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
         <div className="flex justify-center">
           <button
             onClick={handleSwapCurrencies}
-            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             <ArrowDownUp className="h-5 w-5 text-gray-500" />
           </button>
@@ -86,7 +86,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             id="toCurrency"
             value={toCurrency}
             onChange={(e) => setToCurrency(e.target.value)}
-            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
+            className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
           >
             {rates.map((currency) => (
               <option key={currency.code} value={currency.code}>
