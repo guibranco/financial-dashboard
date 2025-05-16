@@ -7,7 +7,7 @@ import Settings from './pages/Settings';
 import Profile from './pages/Profile';
 import Notifications from './pages/Notifications';
 import { AppLayout } from './layout/AppLayout';
-import { DarkModeProvider } from './context/DarkModeContext';
+import { DarkModeProvider } from './context/DarkModeContext.tsx';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('dashboard');
