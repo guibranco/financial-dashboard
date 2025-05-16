@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Save, Bell, Lock, CreditCard, User, Globe, Moon, Sun, Plus } from 'lucide-react';
+import { useDarkMode } from '../../context/DarkModeContext';
 
 const Settings: React.FC = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
@@ -536,5 +537,3 @@ const Settings: React.FC = () => {
 };
 
 export default Settings;
-
-export default Settings
