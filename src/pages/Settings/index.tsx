@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Save, Bell, Lock, CreditCard, User, Globe, Moon, Sun, Plus } from 'lucide-react';
 
 const Settings: React.FC = () => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [activeTab, setActiveTab] = useState('profile');
-  const [darkMode, setDarkMode] = useState(false);
   const [notifications, setNotifications] = useState({
     email: true,
     push: true,
@@ -427,26 +427,26 @@ const Settings: React.FC = () => {
             
             {activeTab === 'preferences' && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">App Preferences</h2>
+                <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">App Preferences</h2>
                 
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Display</h3>
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white">Display</h3>
                     <div className="mt-4 flex items-center justify-between">
                       <div className="flex items-center">
                         {darkMode ? (
-                          <Moon className="h-5 w-5 text-gray-400 mr-2" />
+                          <Moon className="h-5 w-5 text-gray-400 dark:text-gray-500 mr-2" />
                         ) : (
-                          <Sun className="h-5 w-5 text-gray-400 mr-2" />
+                          <Sun className="h-5 w-5 text-gray-400 dark:text-gray-500 mr-2" />
                         )}
-                        <span className="text-sm text-gray-900">Dark Mode</span>
+                        <span className="text-sm text-gray-900 dark:text-white">Dark Mode</span>
                       </div>
                       <button
                         type="button"
                         className={`${
                           darkMode ? 'bg-blue-600' : 'bg-gray-200'
                         } relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
-                        onClick={() => setDarkMode(!darkMode)}
+                        onClick={toggleDarkMode}
                       >
                         <span className="sr-only">Toggle dark mode</span>
                         <span
@@ -536,3 +536,5 @@ const Settings: React.FC = () => {
 };
 
 export default Settings;
+
+export default Settings
