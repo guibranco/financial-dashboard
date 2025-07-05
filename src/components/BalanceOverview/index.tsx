@@ -2,6 +2,7 @@ import React from 'react';
 import { ArrowUpRight, ArrowDownRight, CreditCard } from 'lucide-react';
 import { Balance } from '../../hooks/useMockApi';
 import { formatPercentage } from '../../utils/formatters';
+import { Card, CardHeader, CardContent, Badge, Avatar } from '../../ui';
 
 interface BalanceOverviewProps {
   balances: Balance[];
@@ -16,54 +17,60 @@ const BalanceOverview: React.FC<BalanceOverviewProps> = ({ balances }) => {
   }).format(totalBalance);
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden">
-      <div className="p-6">
-        <h2 className="text-lg font-medium text-gray-900">Balance Overview</h2>
+    <Card variant="elevated" padding="none" className="overflow-hidden dark:bg-gray-800">
+      <CardHeader className="p-6 pb-4">
+        <h2 className="text-lg font-medium text-gray-900 dark:text-gray-100">Balance Overview</h2>
         <div className="mt-2 flex items-baseline">
-          <p className="text-3xl font-semibold text-gray-900">{formattedTotal}</p>
-          <p className="ml-2 text-sm font-medium text-gray-500">Total Balance</p>
+          <p className="text-3xl font-semibold text-gray-900 dark:text-gray-100">{formattedTotal}</p>
+          <p className="ml-2 text-sm font-medium text-gray-500 dark:text-gray-400">Total Balance</p>
         </div>
-      </div>
+      </CardHeader>
       
-      <div className="border-t border-gray-200">
+      <CardContent className="border-t border-gray-200 dark:border-gray-700 p-0">
         {balances.map((account) => (
-          <div key={account.id} className="px-6 py-4 flex items-center justify-between hover:bg-gray-50">
+          <div 
+            key={account.id} 
+            className="px-6 py-4 flex items-center justify-between hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+          >
             <div className="flex items-center">
-              <div className="shrink-0 h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center">
-                <CreditCard className="h-6 w-6 text-blue-600" />
-              </div>
+              <Avatar 
+                size="md" 
+                className="bg-primary-100 dark:bg-primary-900/20"
+              >
+                <CreditCard className="h-5 w-5 text-primary-600 dark:text-primary-400" />
+              </Avatar>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-900">{account.accountName}</p>
-                <p className="text-xs text-gray-500">{account.accountNumber}</p>
+                <p className="text-sm font-medium text-gray-900 dark:text-gray-100">{account.accountName}</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400">{account.accountNumber}</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-sm font-semibold text-gray-900">{account.formattedBalance}</p>
+              <p className="text-sm font-semibold text-gray-900 dark:text-gray-100">{account.formattedBalance}</p>
               <div className="flex items-center justify-end">
-                {account.change >= 0 ? (
-                  <ArrowUpRight className="h-4 w-4 text-green-500" />
-                ) : (
-                  <ArrowDownRight className="h-4 w-4 text-red-500" />
-                )}
-                <p
-                  className={`text-xs font-medium ${
-                    account.change >= 0 ? 'text-green-500' : 'text-red-500'
-                  }`}
+                <Badge 
+                  variant={account.change >= 0 ? 'success' : 'danger'}
+                  size="sm"
+                  className="flex items-center gap-1"
                 >
+                  {account.change >= 0 ? (
+                    <ArrowUpRight className="h-3 w-3" />
+                  ) : (
+                    <ArrowDownRight className="h-3 w-3" />
+                  )}
                   {formatPercentage(account.changePercentage)}
-                </p>
+                </Badge>
               </div>
             </div>
           </div>
         ))}
-      </div>
+      </CardContent>
       
-      <div className="bg-gray-50 px-6 py-3">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:text-blue-500">
+      <div className="bg-gray-50 dark:bg-gray-800/50 px-6 py-3 border-t border-gray-200 dark:border-gray-700">
+        <a href="#" className="text-sm font-medium text-primary-600 hover:text-primary-500 dark:text-primary-400 dark:hover:text-primary-300 transition-colors">
           View all accounts
         </a>
       </div>
-    </div>
+    </Card>
   );
 };
 

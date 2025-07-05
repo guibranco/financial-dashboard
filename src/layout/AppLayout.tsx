@@ -13,11 +13,11 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children, onNavigate, curr
   const { darkMode } = useDarkMode();
   
   return (
-    <div className={`min-h-screen ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+    <div className={`min-h-screen transition-colors ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
       <Header onNavigate={onNavigate} />
       <div className="flex">
         <Sidebar onNavigate={onNavigate} currentPage={currentPage} />
-        <main className="flex-1 p-6">{children}</main>
+        <main className="flex-1 p-6 min-h-screen">{children}</main>
       </div>
     </div>
   );

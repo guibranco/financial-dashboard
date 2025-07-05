@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Bell, Search, User, ChevronDown } from 'lucide-react';
+import { Input, Avatar, Dropdown, DropdownItem, DropdownSeparator, Badge } from '../ui';
 
 interface HeaderProps {
   onNavigate?: (page: string) => void;
@@ -28,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   };
 
   return (
-    <header className="bg-white shadow-xs">
+    <header className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
