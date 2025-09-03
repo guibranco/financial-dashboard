@@ -1,10 +1,20 @@
-import React, { useState } from 'react';
-import { Save, Bell, Lock, CreditCard, User, Globe, Moon, Sun, Plus } from 'lucide-react';
-import { useDarkMode } from '../../context/DarkModeContext';
+import React, { useState } from "react";
+import {
+  Save,
+  Bell,
+  Lock,
+  CreditCard,
+  User,
+  Globe,
+  Moon,
+  Sun,
+  Plus,
+} from "lucide-react";
+import { useDarkMode } from "../../context/DarkModeContext";
 
 const Settings: React.FC = () => {
   const { darkMode, toggleDarkMode } = useDarkMode();
-  const [activeTab, setActiveTab] = useState('profile');
+  const [activeTab, setActiveTab] = useState("profile");
   const [notifications, setNotifications] = useState({
     email: true,
     push: true,
@@ -12,85 +22,87 @@ const Settings: React.FC = () => {
     marketing: false,
     security: true,
   });
-  
+
   const [profile, setProfile] = useState({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    language: 'en',
-    currency: 'USD',
-    timezone: 'America/New_York',
+    firstName: "John",
+    lastName: "Doe",
+    email: "john.doe@example.com",
+    phone: "+1 (555) 123-4567",
+    language: "en",
+    currency: "USD",
+    timezone: "America/New_York",
   });
-  
-  const handleProfileChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+
+  const handleProfileChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     const { name, value } = e.target;
-    setProfile(prev => ({ ...prev, [name]: value }));
+    setProfile((prev) => ({ ...prev, [name]: value }));
   };
-  
+
   const handleNotificationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target;
-    setNotifications(prev => ({ ...prev, [name]: checked }));
+    setNotifications((prev) => ({ ...prev, [name]: checked }));
   };
-  
+
   return (
     <div className="max-w-7xl mx-auto">
       <h1 className="text-2xl font-semibold text-gray-900 mb-6">Settings</h1>
-      
+
       <div className="bg-white shadow-sm rounded-lg overflow-hidden">
         <div className="sm:flex sm:items-start">
           <div className="border-b border-gray-200 sm:border-b-0 sm:border-r sm:w-64">
             <nav className="flex flex-col sm:h-full py-6 px-4 sm:px-6">
               <button
-                onClick={() => setActiveTab('profile')}
+                onClick={() => setActiveTab("profile")}
                 className={`flex items-center px-3 py-2 text-sm font-medium rounded-md mb-1 ${
-                  activeTab === 'profile'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  activeTab === "profile"
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <User className="mr-3 h-5 w-5" />
                 Profile
               </button>
               <button
-                onClick={() => setActiveTab('security')}
+                onClick={() => setActiveTab("security")}
                 className={`flex items-center px-3 py-2 text-sm font-medium rounded-md mb-1 ${
-                  activeTab === 'security'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  activeTab === "security"
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <Lock className="mr-3 h-5 w-5" />
                 Security
               </button>
               <button
-                onClick={() => setActiveTab('notifications')}
+                onClick={() => setActiveTab("notifications")}
                 className={`flex items-center px-3 py-2 text-sm font-medium rounded-md mb-1 ${
-                  activeTab === 'notifications'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  activeTab === "notifications"
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <Bell className="mr-3 h-5 w-5" />
                 Notifications
               </button>
               <button
-                onClick={() => setActiveTab('payment')}
+                onClick={() => setActiveTab("payment")}
                 className={`flex items-center px-3 py-2 text-sm font-medium rounded-md mb-1 ${
-                  activeTab === 'payment'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  activeTab === "payment"
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <CreditCard className="mr-3 h-5 w-5" />
                 Payment Methods
               </button>
               <button
-                onClick={() => setActiveTab('preferences')}
+                onClick={() => setActiveTab("preferences")}
                 className={`flex items-center px-3 py-2 text-sm font-medium rounded-md mb-1 ${
-                  activeTab === 'preferences'
-                    ? 'bg-blue-50 text-blue-700'
-                    : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                  activeTab === "preferences"
+                    ? "bg-blue-50 text-blue-700"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
                 }`}
               >
                 <Globe className="mr-3 h-5 w-5" />
@@ -98,14 +110,19 @@ const Settings: React.FC = () => {
               </button>
             </nav>
           </div>
-          
+
           <div className="px-4 py-5 sm:p-6 flex-1">
-            {activeTab === 'profile' && (
+            {activeTab === "profile" && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">Profile Information</h2>
+                <h2 className="text-lg font-medium text-gray-900 mb-4">
+                  Profile Information
+                </h2>
                 <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                   <div>
-                    <label htmlFor="firstName" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="firstName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       First name
                     </label>
                     <input
@@ -118,7 +135,10 @@ const Settings: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="lastName"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Last name
                     </label>
                     <input
@@ -131,7 +151,10 @@ const Settings: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Email address
                     </label>
                     <input
@@ -144,7 +167,10 @@ const Settings: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700"
+                    >
                       Phone number
                     </label>
                     <input
@@ -157,7 +183,7 @@ const Settings: React.FC = () => {
                     />
                   </div>
                 </div>
-                
+
                 <div className="mt-6">
                   <button
                     type="button"
@@ -169,20 +195,27 @@ const Settings: React.FC = () => {
                 </div>
               </div>
             )}
-            
-            {activeTab === 'security' && (
+
+            {activeTab === "security" && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">Security Settings</h2>
-                
+                <h2 className="text-lg font-medium text-gray-900 mb-4">
+                  Security Settings
+                </h2>
+
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Change Password</h3>
+                    <h3 className="text-sm font-medium text-gray-900">
+                      Change Password
+                    </h3>
                     <div className="mt-2 max-w-xl text-sm text-gray-500">
                       <p>Update your password to keep your account secure.</p>
                     </div>
                     <div className="mt-3 space-y-4">
                       <div>
-                        <label htmlFor="currentPassword" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="currentPassword"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           Current Password
                         </label>
                         <input
@@ -193,7 +226,10 @@ const Settings: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="newPassword" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="newPassword"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           New Password
                         </label>
                         <input
@@ -204,7 +240,10 @@ const Settings: React.FC = () => {
                         />
                       </div>
                       <div>
-                        <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="confirmPassword"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           Confirm New Password
                         </label>
                         <input
@@ -224,9 +263,11 @@ const Settings: React.FC = () => {
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="pt-6 border-t border-gray-200">
-                    <h3 className="text-sm font-medium text-gray-900">Two-Factor Authentication</h3>
+                    <h3 className="text-sm font-medium text-gray-900">
+                      Two-Factor Authentication
+                    </h3>
                     <div className="mt-2 max-w-xl text-sm text-gray-500">
                       <p>Add an extra layer of security to your account.</p>
                     </div>
@@ -242,14 +283,18 @@ const Settings: React.FC = () => {
                 </div>
               </div>
             )}
-            
-            {activeTab === 'notifications' && (
+
+            {activeTab === "notifications" && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">Notification Preferences</h2>
-                
+                <h2 className="text-lg font-medium text-gray-900 mb-4">
+                  Notification Preferences
+                </h2>
+
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900">Email Notifications</h3>
+                    <h3 className="text-sm font-medium text-gray-900">
+                      Email Notifications
+                    </h3>
                     <div className="mt-4 space-y-4">
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
@@ -263,13 +308,18 @@ const Settings: React.FC = () => {
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="email" className="font-medium text-gray-700">
+                          <label
+                            htmlFor="email"
+                            className="font-medium text-gray-700"
+                          >
                             Email Notifications
                           </label>
-                          <p className="text-gray-500">Receive email notifications for account activity.</p>
+                          <p className="text-gray-500">
+                            Receive email notifications for account activity.
+                          </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
                           <input
@@ -282,13 +332,19 @@ const Settings: React.FC = () => {
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="transactions" className="font-medium text-gray-700">
+                          <label
+                            htmlFor="transactions"
+                            className="font-medium text-gray-700"
+                          >
                             Transaction Alerts
                           </label>
-                          <p className="text-gray-500">Get notified about new transactions in your accounts.</p>
+                          <p className="text-gray-500">
+                            Get notified about new transactions in your
+                            accounts.
+                          </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
                           <input
@@ -301,13 +357,18 @@ const Settings: React.FC = () => {
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="security" className="font-medium text-gray-700">
+                          <label
+                            htmlFor="security"
+                            className="font-medium text-gray-700"
+                          >
                             Security Alerts
                           </label>
-                          <p className="text-gray-500">Receive notifications about security-related events.</p>
+                          <p className="text-gray-500">
+                            Receive notifications about security-related events.
+                          </p>
                         </div>
                       </div>
-                      
+
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
                           <input
@@ -320,17 +381,24 @@ const Settings: React.FC = () => {
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="marketing" className="font-medium text-gray-700">
+                          <label
+                            htmlFor="marketing"
+                            className="font-medium text-gray-700"
+                          >
                             Marketing Communications
                           </label>
-                          <p className="text-gray-500">Receive updates about new features and promotions.</p>
+                          <p className="text-gray-500">
+                            Receive updates about new features and promotions.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="pt-6 border-t border-gray-200">
-                    <h3 className="text-sm font-medium text-gray-900">Push Notifications</h3>
+                    <h3 className="text-sm font-medium text-gray-900">
+                      Push Notifications
+                    </h3>
                     <div className="mt-4">
                       <div className="flex items-start">
                         <div className="flex items-center h-5">
@@ -344,15 +412,20 @@ const Settings: React.FC = () => {
                           />
                         </div>
                         <div className="ml-3 text-sm">
-                          <label htmlFor="push" className="font-medium text-gray-700">
+                          <label
+                            htmlFor="push"
+                            className="font-medium text-gray-700"
+                          >
                             Push Notifications
                           </label>
-                          <p className="text-gray-500">Enable push notifications on your devices.</p>
+                          <p className="text-gray-500">
+                            Enable push notifications on your devices.
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
                     <button
                       type="button"
@@ -365,11 +438,13 @@ const Settings: React.FC = () => {
                 </div>
               </div>
             )}
-            
-            {activeTab === 'payment' && (
+
+            {activeTab === "payment" && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4">Payment Methods</h2>
-                
+                <h2 className="text-lg font-medium text-gray-900 mb-4">
+                  Payment Methods
+                </h2>
+
                 <div className="space-y-6">
                   <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <div className="flex items-center justify-between">
@@ -378,8 +453,12 @@ const Settings: React.FC = () => {
                           <CreditCard className="h-6 w-6 text-blue-600" />
                         </div>
                         <div className="ml-4">
-                          <h3 className="text-sm font-medium text-gray-900">Visa ending in 4242</h3>
-                          <p className="text-sm text-gray-500">Expires 12/2025</p>
+                          <h3 className="text-sm font-medium text-gray-900">
+                            Visa ending in 4242
+                          </h3>
+                          <p className="text-sm text-gray-500">
+                            Expires 12/2025
+                          </p>
                         </div>
                       </div>
                       <div className="flex space-x-2">
@@ -392,7 +471,7 @@ const Settings: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
@@ -400,8 +479,12 @@ const Settings: React.FC = () => {
                           <CreditCard className="h-6 w-6 text-blue-600" />
                         </div>
                         <div className="ml-4">
-                          <h3 className="text-sm font-medium text-gray-900">Mastercard ending in 5555</h3>
-                          <p className="text-sm text-gray-500">Expires 08/2024</p>
+                          <h3 className="text-sm font-medium text-gray-900">
+                            Mastercard ending in 5555
+                          </h3>
+                          <p className="text-sm text-gray-500">
+                            Expires 08/2024
+                          </p>
                         </div>
                       </div>
                       <div className="flex space-x-2">
@@ -414,7 +497,7 @@ const Settings: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  
+
                   <button
                     type="button"
                     className="inline-flex items-center px-4 py-2 border border-gray-300 shadow-xs text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
@@ -425,14 +508,18 @@ const Settings: React.FC = () => {
                 </div>
               </div>
             )}
-            
-            {activeTab === 'preferences' && (
+
+            {activeTab === "preferences" && (
               <div>
-                <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">App Preferences</h2>
-                
+                <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+                  App Preferences
+                </h2>
+
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-sm font-medium text-gray-900 dark:text-white">Display</h3>
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white">
+                      Display
+                    </h3>
                     <div className="mt-4 flex items-center justify-between">
                       <div className="flex items-center">
                         {darkMode ? (
@@ -440,30 +527,37 @@ const Settings: React.FC = () => {
                         ) : (
                           <Sun className="h-5 w-5 text-gray-400 dark:text-gray-500 mr-2" />
                         )}
-                        <span className="text-sm text-gray-900 dark:text-white">Dark Mode</span>
+                        <span className="text-sm text-gray-900 dark:text-white">
+                          Dark Mode
+                        </span>
                       </div>
                       <button
                         type="button"
                         className={`${
-                          darkMode ? 'bg-blue-600' : 'bg-gray-200'
+                          darkMode ? "bg-blue-600" : "bg-gray-200"
                         } relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-blue-500`}
                         onClick={toggleDarkMode}
                       >
                         <span className="sr-only">Toggle dark mode</span>
                         <span
                           className={`${
-                            darkMode ? 'translate-x-5' : 'translate-x-0'
+                            darkMode ? "translate-x-5" : "translate-x-0"
                           } pointer-events-none relative inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200`}
                         ></span>
                       </button>
                     </div>
                   </div>
-                  
+
                   <div className="pt-6 border-t border-gray-200">
-                    <h3 className="text-sm font-medium text-gray-900">Regional Settings</h3>
+                    <h3 className="text-sm font-medium text-gray-900">
+                      Regional Settings
+                    </h3>
                     <div className="mt-4 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-4">
                       <div>
-                        <label htmlFor="language" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="language"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           Language
                         </label>
                         <select
@@ -480,7 +574,10 @@ const Settings: React.FC = () => {
                         </select>
                       </div>
                       <div>
-                        <label htmlFor="currency" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="currency"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           Currency
                         </label>
                         <select
@@ -497,7 +594,10 @@ const Settings: React.FC = () => {
                         </select>
                       </div>
                       <div>
-                        <label htmlFor="timezone" className="block text-sm font-medium text-gray-700">
+                        <label
+                          htmlFor="timezone"
+                          className="block text-sm font-medium text-gray-700"
+                        >
                           Timezone
                         </label>
                         <select
@@ -507,16 +607,24 @@ const Settings: React.FC = () => {
                           onChange={handleProfileChange}
                           className="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-hidden focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md"
                         >
-                          <option value="America/New_York">Eastern Time (ET)</option>
-                          <option value="America/Chicago">Central Time (CT)</option>
-                          <option value="America/Denver">Mountain Time (MT)</option>
-                          <option value="America/Los_Angeles">Pacific Time (PT)</option>
+                          <option value="America/New_York">
+                            Eastern Time (ET)
+                          </option>
+                          <option value="America/Chicago">
+                            Central Time (CT)
+                          </option>
+                          <option value="America/Denver">
+                            Mountain Time (MT)
+                          </option>
+                          <option value="America/Los_Angeles">
+                            Pacific Time (PT)
+                          </option>
                           <option value="Europe/London">London (GMT)</option>
                         </select>
                       </div>
                     </div>
                   </div>
-                  
+
                   <div className="mt-6">
                     <button
                       type="button"

@@ -1,21 +1,21 @@
-import React, { useEffect } from 'react';
-import { cn } from '../utils/cn';
-import { X } from 'lucide-react';
+import React, { useEffect } from "react";
+import { cn } from "../utils/cn";
+import { X } from "lucide-react";
 
 export interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   title?: string;
   children: React.ReactNode;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: "sm" | "md" | "lg" | "xl";
   className?: string;
 }
 
 const modalSizes = {
-  sm: 'max-w-md',
-  md: 'max-w-lg',
-  lg: 'max-w-2xl',
-  xl: 'max-w-4xl',
+  sm: "max-w-md",
+  md: "max-w-lg",
+  lg: "max-w-2xl",
+  xl: "max-w-4xl",
 };
 
 export const Modal: React.FC<ModalProps> = ({
@@ -23,24 +23,24 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  size = 'md',
+  size = "md",
   className,
 }) => {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+      if (event.key === "Escape") {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
+      document.addEventListener("keydown", handleEscape);
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
+      document.removeEventListener("keydown", handleEscape);
+      document.body.style.overflow = "unset";
     };
   }, [isOpen, onClose]);
 
@@ -54,14 +54,14 @@ export const Modal: React.FC<ModalProps> = ({
           className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"
           onClick={onClose}
         />
-        
+
         {/* Modal panel */}
         <div
           className={cn(
-            'relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all',
-            'w-full sm:my-8',
+            "relative transform overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-left shadow-xl transition-all",
+            "w-full sm:my-8",
             modalSizes[size],
-            className
+            className,
           )}
         >
           {/* Header */}
@@ -78,11 +78,9 @@ export const Modal: React.FC<ModalProps> = ({
               </button>
             </div>
           )}
-          
+
           {/* Content */}
-          <div className="px-6 py-4">
-            {children}
-          </div>
+          <div className="px-6 py-4">{children}</div>
         </div>
       </div>
     </div>
