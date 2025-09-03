@@ -1,17 +1,25 @@
-import React, { useState } from 'react';
-import { Plus, Search, Filter, CreditCard, ArrowUpRight, ArrowDownRight } from 'lucide-react';
-import { useMockApi } from '../../hooks/useMockApi';
-import { formatPercentage } from '../../utils/formatters';
+import React, { useState } from "react";
+import {
+  Plus,
+  Search,
+  Filter,
+  CreditCard,
+  ArrowUpRight,
+  ArrowDownRight,
+} from "lucide-react";
+import { useMockApi } from "../../hooks/useMockApi";
+import { formatPercentage } from "../../utils/formatters";
 
 const Accounts: React.FC = () => {
   const { balances, isLoading } = useMockApi();
-  const [searchTerm, setSearchTerm] = useState('');
-  
-  const filteredAccounts = balances.filter(account => 
-    account.accountName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    account.accountNumber.includes(searchTerm)
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredAccounts = balances.filter(
+    (account) =>
+      account.accountName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      account.accountNumber.includes(searchTerm),
   );
-  
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -19,7 +27,7 @@ const Accounts: React.FC = () => {
       </div>
     );
   }
-  
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-center mb-6">
@@ -29,11 +37,13 @@ const Accounts: React.FC = () => {
           Add Account
         </button>
       </div>
-      
+
       <div className="bg-white shadow-sm rounded-lg mb-8">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
-            <h2 className="text-lg leading-6 font-medium text-gray-900">Your Accounts</h2>
+            <h2 className="text-lg leading-6 font-medium text-gray-900">
+              Your Accounts
+            </h2>
             <div className="mt-3 md:mt-0 flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3">
               <div className="relative rounded-md shadow-xs">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -54,24 +64,39 @@ const Accounts: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Account
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Account Number
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Balance
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Change
                 </th>
-                <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Actions
                 </th>
               </tr>
@@ -85,16 +110,24 @@ const Accounts: React.FC = () => {
                         <CreditCard className="h-6 w-6 text-blue-600" />
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{account.accountName}</div>
-                        <div className="text-sm text-gray-500">{account.currency}</div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {account.accountName}
+                        </div>
+                        <div className="text-sm text-gray-500">
+                          {account.currency}
+                        </div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm text-gray-900">{account.accountNumber}</div>
+                    <div className="text-sm text-gray-900">
+                      {account.accountNumber}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{account.formattedBalance}</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      {account.formattedBalance}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
@@ -105,7 +138,9 @@ const Accounts: React.FC = () => {
                       )}
                       <span
                         className={`text-sm font-medium ${
-                          account.change >= 0 ? 'text-green-500' : 'text-red-500'
+                          account.change >= 0
+                            ? "text-green-500"
+                            : "text-red-500"
                         }`}
                       >
                         {formatPercentage(account.changePercentage)}
@@ -113,7 +148,10 @@ const Accounts: React.FC = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" className="text-blue-600 hover:text-blue-900 mr-4">
+                    <a
+                      href="#"
+                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    >
                       View
                     </a>
                     <a href="#" className="text-blue-600 hover:text-blue-900">
@@ -125,41 +163,56 @@ const Accounts: React.FC = () => {
             </tbody>
           </table>
         </div>
-        
+
         {filteredAccounts.length === 0 && (
           <div className="px-6 py-4 text-center text-sm text-gray-500">
             No accounts found matching your search.
           </div>
         )}
       </div>
-      
+
       <div className="bg-white shadow-sm rounded-lg">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
-          <h2 className="text-lg leading-6 font-medium text-gray-900">Account Statistics</h2>
+          <h2 className="text-lg leading-6 font-medium text-gray-900">
+            Account Statistics
+          </h2>
         </div>
         <div className="p-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-sm font-medium text-gray-500">Total Balance</h3>
+              <h3 className="text-sm font-medium text-gray-500">
+                Total Balance
+              </h3>
               <p className="mt-1 text-2xl font-semibold text-gray-900">
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                }).format(balances.reduce((sum, account) => sum + account.balance, 0))}
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(
+                  balances.reduce((sum, account) => sum + account.balance, 0),
+                )}
               </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-sm font-medium text-gray-500">Average Balance</h3>
+              <h3 className="text-sm font-medium text-gray-500">
+                Average Balance
+              </h3>
               <p className="mt-1 text-2xl font-semibold text-gray-900">
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
-                }).format(balances.reduce((sum, account) => sum + account.balance, 0) / balances.length)}
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(
+                  balances.reduce((sum, account) => sum + account.balance, 0) /
+                    balances.length,
+                )}
               </p>
             </div>
             <div className="bg-gray-50 rounded-lg p-4">
-              <h3 className="text-sm font-medium text-gray-500">Number of Accounts</h3>
-              <p className="mt-1 text-2xl font-semibold text-gray-900">{balances.length}</p>
+              <h3 className="text-sm font-medium text-gray-500">
+                Number of Accounts
+              </h3>
+              <p className="mt-1 text-2xl font-semibold text-gray-900">
+                {balances.length}
+              </p>
             </div>
           </div>
         </div>

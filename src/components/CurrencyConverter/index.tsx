@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowDownUp } from 'lucide-react';
-import { CurrencyRate } from '../../hooks/useMockApi';
-import { formatCurrency } from '../../utils/formatters';
+import React, { useState, useEffect } from "react";
+import { ArrowDownUp } from "lucide-react";
+import { CurrencyRate } from "../../hooks/useMockApi";
+import { formatCurrency } from "../../utils/formatters";
 
 interface CurrencyConverterProps {
   rates: CurrencyRate[];
@@ -9,19 +9,19 @@ interface CurrencyConverterProps {
 
 const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
   const [amount, setAmount] = useState<number>(100);
-  const [fromCurrency, setFromCurrency] = useState<string>('USD');
-  const [toCurrency, setToCurrency] = useState<string>('EUR');
+  const [fromCurrency, setFromCurrency] = useState<string>("USD");
+  const [toCurrency, setToCurrency] = useState<string>("EUR");
   const [convertedAmount, setConvertedAmount] = useState<number>(0);
 
   useEffect(() => {
     if (rates.length > 0) {
       const fromRate = rates.find((r) => r.code === fromCurrency)?.rate || 1;
       const toRate = rates.find((r) => r.code === toCurrency)?.rate || 1;
-      
+
       // Convert to USD first (as base), then to target currency
       const inUSD = amount / fromRate;
       const converted = inUSD * toRate;
-      
+
       setConvertedAmount(converted);
     }
   }, [amount, fromCurrency, toCurrency, rates]);
@@ -33,11 +33,16 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-lg font-medium text-gray-900 mb-4">Currency Converter</h2>
-      
+      <h2 className="text-lg font-medium text-gray-900 mb-4">
+        Currency Converter
+      </h2>
+
       <div className="space-y-4">
         <div>
-          <label htmlFor="amount" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="amount"
+            className="block text-sm font-medium text-gray-700"
+          >
             Amount
           </label>
           <div className="mt-1">
@@ -50,9 +55,12 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             />
           </div>
         </div>
-        
+
         <div>
-          <label htmlFor="fromCurrency" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="fromCurrency"
+            className="block text-sm font-medium text-gray-700"
+          >
             From
           </label>
           <select
@@ -68,7 +76,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             ))}
           </select>
         </div>
-        
+
         <div className="flex justify-center">
           <button
             onClick={handleSwapCurrencies}
@@ -77,9 +85,12 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             <ArrowDownUp className="h-5 w-5 text-gray-500" />
           </button>
         </div>
-        
+
         <div>
-          <label htmlFor="toCurrency" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="toCurrency"
+            className="block text-sm font-medium text-gray-700"
+          >
             To
           </label>
           <select
@@ -95,7 +106,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
             ))}
           </select>
         </div>
-        
+
         <div className="pt-4 border-t border-gray-200">
           <div className="text-center">
             <p className="text-sm text-gray-500">
@@ -105,10 +116,12 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = ({ rates }) => {
               {formatCurrency(convertedAmount, toCurrency)}
             </p>
             <p className="text-xs text-gray-500 mt-1">
-              1 {fromCurrency} = {formatCurrency(
-                rates.find((r) => r.code === toCurrency)?.rate || 0 / 
-                rates.find((r) => r.code === fromCurrency)?.rate || 1,
-                toCurrency
+              1 {fromCurrency} ={" "}
+              {formatCurrency(
+                rates.find((r) => r.code === toCurrency)?.rate ||
+                  0 / rates.find((r) => r.code === fromCurrency)?.rate ||
+                  1,
+                toCurrency,
               )}
             </p>
           </div>

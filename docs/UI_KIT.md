@@ -9,12 +9,14 @@ This UI Kit provides a comprehensive set of reusable components and design token
 ### Colors
 
 #### Primary Colors
+
 - **Primary 50**: `#eff6ff` - Lightest blue
 - **Primary 500**: `#3b82f6` - Main brand color
 - **Primary 600**: `#2563eb` - Primary button hover
 - **Primary 700**: `#1d4ed8` - Primary button active
 
 #### Gray Scale
+
 - **Gray 50**: `#f9fafb` - Background light
 - **Gray 100**: `#f3f4f6` - Card backgrounds
 - **Gray 500**: `#6b7280` - Text secondary
@@ -23,6 +25,7 @@ This UI Kit provides a comprehensive set of reusable components and design token
 ### Typography
 
 The UI Kit uses **Inter** as the primary font family with the following scale:
+
 - **Text XS**: 12px (0.75rem)
 - **Text SM**: 14px (0.875rem)
 - **Text Base**: 16px (1rem)
@@ -32,6 +35,7 @@ The UI Kit uses **Inter** as the primary font family with the following scale:
 ### Spacing
 
 Following Tailwind's 4px base unit system:
+
 - **1**: 4px
 - **2**: 8px
 - **4**: 16px
@@ -102,20 +106,20 @@ Form input component with label, error states, and icons.
 import { Input } from '@/ui';
 import { Search, Mail } from 'lucide-react';
 
-<Input 
+<Input
   label="Email"
   placeholder="Enter your email"
   type="email"
 />
 
 // With icons
-<Input 
+<Input
   leftIcon={<Search />}
   placeholder="Search..."
 />
 
 // With error state
-<Input 
+<Input
   label="Password"
   error="Password is required"
   type="password"
@@ -153,18 +157,17 @@ import { Avatar } from '@/ui';
 Contextual menus and dropdowns.
 
 ```tsx
-import { Dropdown, DropdownItem, DropdownSeparator } from '@/ui';
-import { Settings, User, LogOut } from 'lucide-react';
+import { Dropdown, DropdownItem, DropdownSeparator } from "@/ui";
+import { Settings, User, LogOut } from "lucide-react";
 
-<Dropdown 
-  trigger={<Button>Menu</Button>}
-  align="right"
->
+<Dropdown trigger={<Button>Menu</Button>} align="right">
   <DropdownItem icon={<User />}>Profile</DropdownItem>
   <DropdownItem icon={<Settings />}>Settings</DropdownItem>
   <DropdownSeparator />
-  <DropdownItem icon={<LogOut />} destructive>Logout</DropdownItem>
-</Dropdown>
+  <DropdownItem icon={<LogOut />} destructive>
+    Logout
+  </DropdownItem>
+</Dropdown>;
 ```
 
 ### Modal
@@ -172,16 +175,16 @@ import { Settings, User, LogOut } from 'lucide-react';
 Dialog overlays for important actions.
 
 ```tsx
-import { Modal } from '@/ui';
+import { Modal } from "@/ui";
 
-<Modal 
+<Modal
   isOpen={isOpen}
   onClose={() => setIsOpen(false)}
   title="Confirm Action"
   size="md"
 >
   <p>Are you sure you want to continue?</p>
-</Modal>
+</Modal>;
 ```
 
 ### Tabs
@@ -189,20 +192,16 @@ import { Modal } from '@/ui';
 Navigation between related content.
 
 ```tsx
-import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/ui';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/ui";
 
 <Tabs defaultValue="overview">
   <TabsList>
     <TabsTrigger value="overview">Overview</TabsTrigger>
     <TabsTrigger value="analytics">Analytics</TabsTrigger>
   </TabsList>
-  <TabsContent value="overview">
-    Overview content
-  </TabsContent>
-  <TabsContent value="analytics">
-    Analytics content
-  </TabsContent>
-</Tabs>
+  <TabsContent value="overview">Overview content</TabsContent>
+  <TabsContent value="analytics">Analytics content</TabsContent>
+</Tabs>;
 ```
 
 ### Alert

@@ -1,25 +1,38 @@
-import React, { useState } from 'react';
-import { Plus, Search, Filter, TrendingUp, ArrowUpRight, ArrowDownRight, PieChart } from 'lucide-react';
-import { useMockApi } from '../../hooks/useMockApi';
-import { formatPercentage } from '../../utils/formatters';
+import React, { useState } from "react";
+import {
+  Plus,
+  Search,
+  Filter,
+  TrendingUp,
+  ArrowUpRight,
+  ArrowDownRight,
+  PieChart,
+} from "lucide-react";
+import { useMockApi } from "../../hooks/useMockApi";
+import { formatPercentage } from "../../utils/formatters";
 
 const Investments: React.FC = () => {
   const { investments, isLoading } = useMockApi();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [activeTab, setActiveTab] = useState('all');
-  
-  const filteredInvestments = investments.filter(investment => 
-    investment.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const [searchTerm, setSearchTerm] = useState("");
+  const [activeTab, setActiveTab] = useState("all");
+
+  const filteredInvestments = investments.filter((investment) =>
+    investment.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
-  
+
   // Calculate total investment value
-  const totalValue = investments.reduce((sum, investment) => sum + investment.value, 0);
-  
+  const totalValue = investments.reduce(
+    (sum, investment) => sum + investment.value,
+    0,
+  );
+
   // Calculate performance metrics
-  const positiveInvestments = investments.filter(inv => inv.change > 0);
-  const negativeInvestments = investments.filter(inv => inv.change < 0);
-  const averageReturn = investments.reduce((sum, inv) => sum + inv.changePercentage, 0) / investments.length;
-  
+  const positiveInvestments = investments.filter((inv) => inv.change > 0);
+  const negativeInvestments = investments.filter((inv) => inv.change < 0);
+  const averageReturn =
+    investments.reduce((sum, inv) => sum + inv.changePercentage, 0) /
+    investments.length;
+
   if (isLoading) {
     return (
       <div className="flex items-center justify-center h-64">
@@ -27,7 +40,7 @@ const Investments: React.FC = () => {
       </div>
     );
   }
-  
+
   return (
     <div className="max-w-7xl mx-auto">
       <div className="flex justify-between items-center mb-6">
@@ -37,7 +50,7 @@ const Investments: React.FC = () => {
           Add Investment
         </button>
       </div>
-      
+
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-white shadow-sm rounded-lg p-6">
           <div className="flex items-center">
@@ -45,80 +58,94 @@ const Investments: React.FC = () => {
               <PieChart className="h-6 w-6 text-blue-600" />
             </div>
             <div className="ml-4">
-              <h2 className="text-lg font-medium text-gray-900">Total Portfolio Value</h2>
+              <h2 className="text-lg font-medium text-gray-900">
+                Total Portfolio Value
+              </h2>
               <p className="text-2xl font-semibold text-gray-900">
-                {new Intl.NumberFormat('en-US', {
-                  style: 'currency',
-                  currency: 'USD',
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
                 }).format(totalValue)}
               </p>
             </div>
           </div>
         </div>
-        
+
         <div className="bg-white shadow-sm rounded-lg p-6">
-          <h2 className="text-lg font-medium text-gray-900 mb-2">Portfolio Performance</h2>
+          <h2 className="text-lg font-medium text-gray-900 mb-2">
+            Portfolio Performance
+          </h2>
           <div className="flex items-center">
             {averageReturn >= 0 ? (
               <ArrowUpRight className="h-6 w-6 text-green-500 mr-2" />
             ) : (
               <ArrowDownRight className="h-6 w-6 text-red-500 mr-2" />
             )}
-            <p className={`text-2xl font-semibold ${averageReturn >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+            <p
+              className={`text-2xl font-semibold ${averageReturn >= 0 ? "text-green-500" : "text-red-500"}`}
+            >
               {formatPercentage(averageReturn)}
             </p>
           </div>
           <p className="text-sm text-gray-500 mt-1">Average return</p>
         </div>
-        
+
         <div className="bg-white shadow-sm rounded-lg p-6">
-          <h2 className="text-lg font-medium text-gray-900 mb-2">Investment Breakdown</h2>
+          <h2 className="text-lg font-medium text-gray-900 mb-2">
+            Investment Breakdown
+          </h2>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p className="text-sm text-gray-500">Positive</p>
-              <p className="text-xl font-semibold text-green-500">{positiveInvestments.length}</p>
+              <p className="text-xl font-semibold text-green-500">
+                {positiveInvestments.length}
+              </p>
             </div>
             <div>
               <p className="text-sm text-gray-500">Negative</p>
-              <p className="text-xl font-semibold text-red-500">{negativeInvestments.length}</p>
+              <p className="text-xl font-semibold text-red-500">
+                {negativeInvestments.length}
+              </p>
             </div>
           </div>
         </div>
       </div>
-      
+
       <div className="bg-white shadow-sm rounded-lg mb-8">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-lg leading-6 font-medium text-gray-900">Your Investments</h2>
+              <h2 className="text-lg leading-6 font-medium text-gray-900">
+                Your Investments
+              </h2>
               <div className="mt-1 flex space-x-4">
                 <button
                   className={`px-3 py-2 text-sm font-medium rounded-md ${
-                    activeTab === 'all' 
-                      ? 'bg-blue-50 text-blue-700' 
-                      : 'text-gray-500 hover:text-gray-700'
+                    activeTab === "all"
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-gray-500 hover:text-gray-700"
                   }`}
-                  onClick={() => setActiveTab('all')}
+                  onClick={() => setActiveTab("all")}
                 >
                   All
                 </button>
                 <button
                   className={`px-3 py-2 text-sm font-medium rounded-md ${
-                    activeTab === 'stocks' 
-                      ? 'bg-blue-50 text-blue-700' 
-                      : 'text-gray-500 hover:text-gray-700'
+                    activeTab === "stocks"
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-gray-500 hover:text-gray-700"
                   }`}
-                  onClick={() => setActiveTab('stocks')}
+                  onClick={() => setActiveTab("stocks")}
                 >
                   Stocks
                 </button>
                 <button
                   className={`px-3 py-2 text-sm font-medium rounded-md ${
-                    activeTab === 'crypto' 
-                      ? 'bg-blue-50 text-blue-700' 
-                      : 'text-gray-500 hover:text-gray-700'
+                    activeTab === "crypto"
+                      ? "bg-blue-50 text-blue-700"
+                      : "text-gray-500 hover:text-gray-700"
                   }`}
-                  onClick={() => setActiveTab('crypto')}
+                  onClick={() => setActiveTab("crypto")}
                 >
                   Crypto
                 </button>
@@ -144,24 +171,39 @@ const Investments: React.FC = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Investment
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Value
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Change
                 </th>
-                <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Performance
                 </th>
-                <th scope="col" className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+                >
                   Actions
                 </th>
               </tr>
@@ -175,19 +217,23 @@ const Investments: React.FC = () => {
                         <TrendingUp className="h-6 w-6 text-purple-600" />
                       </div>
                       <div className="ml-4">
-                        <div className="text-sm font-medium text-gray-900">{investment.name}</div>
+                        <div className="text-sm font-medium text-gray-900">
+                          {investment.name}
+                        </div>
                       </div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="text-sm font-medium text-gray-900">{investment.formattedValue}</div>
+                    <div className="text-sm font-medium text-gray-900">
+                      {investment.formattedValue}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm text-gray-900">
-                      {new Intl.NumberFormat('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                        signDisplay: 'always',
+                      {new Intl.NumberFormat("en-US", {
+                        style: "currency",
+                        currency: "USD",
+                        signDisplay: "always",
                       }).format(investment.change)}
                     </div>
                   </td>
@@ -200,7 +246,9 @@ const Investments: React.FC = () => {
                       )}
                       <span
                         className={`text-sm font-medium ${
-                          investment.change >= 0 ? 'text-green-500' : 'text-red-500'
+                          investment.change >= 0
+                            ? "text-green-500"
+                            : "text-red-500"
                         }`}
                       >
                         {formatPercentage(investment.changePercentage)}
@@ -208,7 +256,10 @@ const Investments: React.FC = () => {
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" className="text-blue-600 hover:text-blue-900 mr-4">
+                    <a
+                      href="#"
+                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    >
                       View
                     </a>
                     <a href="#" className="text-blue-600 hover:text-blue-900">
@@ -220,17 +271,19 @@ const Investments: React.FC = () => {
             </tbody>
           </table>
         </div>
-        
+
         {filteredInvestments.length === 0 && (
           <div className="px-6 py-4 text-center text-sm text-gray-500">
             No investments found matching your search.
           </div>
         )}
       </div>
-      
+
       <div className="bg-white shadow-sm rounded-lg">
         <div className="px-4 py-5 border-b border-gray-200 sm:px-6">
-          <h2 className="text-lg leading-6 font-medium text-gray-900">Investment Allocation</h2>
+          <h2 className="text-lg leading-6 font-medium text-gray-900">
+            Investment Allocation
+          </h2>
         </div>
         <div className="p-6">
           <div className="h-64 flex items-center justify-center">
