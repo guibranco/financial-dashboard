@@ -1,24 +1,35 @@
-import React, { useState } from 'react';
-import { User, Mail, Phone, MapPin, Briefcase, Calendar, Camera, Save } from 'lucide-react';
+import React, { useState } from "react";
+import {
+  User,
+  Mail,
+  Phone,
+  MapPin,
+  Briefcase,
+  Calendar,
+  Camera,
+  Save,
+} from "lucide-react";
 
 const Profile: React.FC = () => {
   const [profile, setProfile] = useState({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    phone: '+1 (555) 123-4567',
-    address: '123 Main St, New York, NY 10001',
-    occupation: 'Software Engineer',
-    company: 'Tech Solutions Inc.',
-    birthdate: '1985-06-15',
-    bio: 'Experienced software engineer with a passion for building financial applications and tools.',
+    firstName: "John",
+    lastName: "Doe",
+    email: "john.doe@example.com",
+    phone: "+1 (555) 123-4567",
+    address: "123 Main St, New York, NY 10001",
+    occupation: "Software Engineer",
+    company: "Tech Solutions Inc.",
+    birthdate: "1985-06-15",
+    bio: "Experienced software engineer with a passion for building financial applications and tools.",
   });
 
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     const { name, value } = e.target;
-    setProfile(prev => ({ ...prev, [name]: value }));
+    setProfile((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -67,8 +78,12 @@ const Profile: React.FC = () => {
       <div className="bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6 flex justify-between items-center">
           <div>
-            <h3 className="text-lg leading-6 font-medium text-gray-900">Personal Information</h3>
-            <p className="mt-1 max-w-2xl text-sm text-gray-500">Personal details and contact information.</p>
+            <h3 className="text-lg leading-6 font-medium text-gray-900">
+              Personal Information
+            </h3>
+            <p className="mt-1 max-w-2xl text-sm text-gray-500">
+              Personal details and contact information.
+            </p>
           </div>
           <div className="relative">
             <div className="h-24 w-24 rounded-full overflow-hidden bg-gray-100 border-4 border-white shadow-sm">
@@ -230,10 +245,10 @@ const Profile: React.FC = () => {
                     className="shadow-xs focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
                   />
                 ) : (
-                  new Date(profile.birthdate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
+                  new Date(profile.birthdate).toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })
                 )}
               </dd>
@@ -261,8 +276,12 @@ const Profile: React.FC = () => {
 
       <div className="mt-8 bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Account Security</h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">Manage your account security settings.</p>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Account Security
+          </h3>
+          <p className="mt-1 max-w-2xl text-sm text-gray-500">
+            Manage your account security settings.
+          </p>
         </div>
         <div className="border-t border-gray-200">
           <dl>
@@ -279,7 +298,9 @@ const Profile: React.FC = () => {
               </dd>
             </div>
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Two-factor authentication</dt>
+              <dt className="text-sm font-medium text-gray-500">
+                Two-factor authentication
+              </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">
                 <span>Not enabled</span>
                 <button
@@ -291,7 +312,9 @@ const Profile: React.FC = () => {
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-              <dt className="text-sm font-medium text-gray-500">Login sessions</dt>
+              <dt className="text-sm font-medium text-gray-500">
+                Login sessions
+              </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 flex justify-between items-center">
                 <span>1 active session</span>
                 <button
@@ -308,8 +331,12 @@ const Profile: React.FC = () => {
 
       <div className="mt-8 bg-white shadow-sm overflow-hidden sm:rounded-lg">
         <div className="px-4 py-5 sm:px-6">
-          <h3 className="text-lg leading-6 font-medium text-gray-900">Connected Accounts</h3>
-          <p className="mt-1 max-w-2xl text-sm text-gray-500">Link your accounts for easier access.</p>
+          <h3 className="text-lg leading-6 font-medium text-gray-900">
+            Connected Accounts
+          </h3>
+          <p className="mt-1 max-w-2xl text-sm text-gray-500">
+            Link your accounts for easier access.
+          </p>
         </div>
         <div className="border-t border-gray-200">
           <dl>
