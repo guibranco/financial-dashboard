@@ -1,7 +1,7 @@
-import React from 'react';
-import { Header } from './Header';
-import { Sidebar } from './Sidebar';
-import { useDarkMode } from '../context/DarkModeContext';
+import React from "react";
+import { Header } from "./Header";
+import { Sidebar } from "./Sidebar";
+import { useDarkMode } from "../context/DarkModeContext";
 
 interface AppLayoutProps {
   children: React.ReactNode;
@@ -9,11 +9,17 @@ interface AppLayoutProps {
   currentPage: string;
 }
 
-export const AppLayout: React.FC<AppLayoutProps> = ({ children, onNavigate, currentPage }) => {
+export const AppLayout: React.FC<AppLayoutProps> = ({
+  children,
+  onNavigate,
+  currentPage,
+}) => {
   const { darkMode } = useDarkMode();
-  
+
   return (
-    <div className={`min-h-screen transition-colors ${darkMode ? 'dark bg-gray-900' : 'bg-gray-50'}`}>
+    <div
+      className={`min-h-screen transition-colors ${darkMode ? "dark bg-gray-900" : "bg-gray-50"}`}
+    >
       <Header onNavigate={onNavigate} />
       <div className="flex">
         <Sidebar onNavigate={onNavigate} currentPage={currentPage} />
