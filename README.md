@@ -22,17 +22,20 @@ A modern, responsive financial dashboard built with React, TypeScript, and a cus
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone https://github.com/guibranco/financial-dashboard.git
 cd financial-dashboard
 ```
 
 2. Install dependencies:
+
 ```bash
 npm install
 ```
 
 3. Start the development server:
+
 ```bash
 npm run dev
 ```
@@ -44,6 +47,7 @@ npm run dev
 This project includes a comprehensive UI Kit with the following components:
 
 ### Core Components
+
 - **Button**: Multiple variants (primary, secondary, outline, ghost, danger)
 - **Card**: Flexible container with header, content, and footer
 - **Input**: Form inputs with labels, errors, and icons
@@ -51,6 +55,7 @@ This project includes a comprehensive UI Kit with the following components:
 - **Avatar**: User profile pictures with fallback support
 
 ### Advanced Components
+
 - **Dropdown**: Contextual menus with keyboard navigation
 - **Modal**: Dialog overlays with backdrop and keyboard support
 - **Tabs**: Navigation between related content
@@ -59,6 +64,7 @@ This project includes a comprehensive UI Kit with the following components:
 - **Tooltip**: Contextual help and information
 
 ### Design System
+
 - **Colors**: Primary blue palette with 11 shades
 - **Typography**: Inter font family with consistent scale
 - **Spacing**: 4px base unit system
@@ -72,6 +78,7 @@ This project includes a comprehensive UI Kit with the following components:
 ## 🌙 Dark Mode
 
 The application supports system-wide dark mode with:
+
 - Automatic detection of system preference
 - Manual toggle capability
 - Smooth transitions between themes
@@ -104,18 +111,21 @@ src/
 ## 🎯 Features Overview
 
 ### Dashboard
+
 - Balance overview with account details
 - Currency converter with real-time rates
 - Investment portfolio tracking
 - Currency trends visualization
 
 ### Navigation
+
 - Responsive sidebar navigation
 - User profile dropdown
 - Notification center
 - Search functionality
 
 ### Responsive Design
+
 - Mobile-first approach
 - Tablet and desktop optimized
 - Touch-friendly interactions
